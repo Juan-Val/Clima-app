@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
+import { AppBar } from "./src/components/AppBar";
+import { Card } from "./src/components/Card";
+import { Provider } from "react-redux";
+import { store } from "./src/store/store";
+import { Main } from "./src/components/Main";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <AppBar />
+        <Card />
+        <Main />
+      </View>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    margin: 15,
+  },
+  fondo: {
+    flex: 1,
+    justifyContent: "center",
   },
 });
